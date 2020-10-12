@@ -5,10 +5,15 @@ import CommentList from 'components/CommentList';
 
 let wrapped;
 beforeEach(() => {
+  const initialState = {
+    comments: ['Comment 1', 'Comment 2'],
+  };
   wrapped = mount(
-    <Root>
+    <Root initialState={initialState}>
       <CommentList />
     </Root>
   );
 });
-it('creates one LI per comment', () => {});
+it('creates one LI per comment', () => {
+  console.log(wrapped.find('li').length);
+});

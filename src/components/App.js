@@ -1,13 +1,29 @@
-import React from 'react';
-import { Route } from 'react-router-dom';
+import React, { Component } from 'react';
+import { Route, Link } from 'react-router-dom';
 import CommentBox from 'components/CommentBox';
 import CommentList from 'components/CommentList';
 
-export default () => {
-  return (
-    <>
-      <Route path='/post' component={CommentBox} />
-      <Route path='/' exact component={CommentList} />
-    </>
-  );
-};
+export default class App extends Component {
+  renderButton() {}
+  rednerHeader() {
+    return (
+      <ul>
+        <li>
+          <Link to='/'>Home</Link>
+        </li>
+        <li>
+          <Link to='/post'>Post A Comment</Link>
+        </li>
+        <li>{this.renderButton()}</li>
+      </ul>
+    );
+  }
+  render() {
+    return (
+      <>
+        <Route path='/post' component={CommentBox} />
+        <Route path='/' exact component={CommentList} />
+      </>
+    );
+  }
+}
